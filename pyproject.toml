@@ -78,8 +78,9 @@ docstring-code-format = true
 
 [dependency-groups]
 dev = [
-    "databricks-connect~=18.0.0",
+    "databricks-connect~=17.3.0",
 ]
 
 [tool.databricks.environment]
-environment_version = "6"
+environment_version = "4"
+
