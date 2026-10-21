@@ -1,7 +1,7 @@
 # Databricks notebook source
 # MAGIC %md
 # MAGIC # Lecture 2.2: PDF Parsing with AI Parse Documents
-# MAGIC
+# MAGIC 
 # MAGIC ## Topics Covered:
 # MAGIC - Downloading and storing PDFs
 # MAGIC - AI Parse Documents for intelligent parsing

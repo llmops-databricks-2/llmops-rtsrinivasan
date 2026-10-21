@@ -1,7 +1,7 @@
 # Databricks notebook source
 # MAGIC %md
 # MAGIC # Lecture 1.2: Provisioned Throughput Deployment
-# MAGIC
+# MAGIC 
 # MAGIC Deploy an **on-demand** endpoint using the Databricks SDK, create a Unity Catalog model
 # MAGIC service that routes to it, query through Unity Gateway, and clean up after the lab.
 # MAGIC **Checked: October 12, 2026 (AWS).**

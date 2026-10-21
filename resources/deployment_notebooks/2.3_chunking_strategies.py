@@ -1,7 +1,7 @@
 # Databricks notebook source
 # MAGIC %md
 # MAGIC # Lecture 2.3: Chunking Strategies
-# MAGIC
+# MAGIC 
 # MAGIC ## Topics Covered:
 # MAGIC - Why chunking matters
 # MAGIC - Different chunking approaches

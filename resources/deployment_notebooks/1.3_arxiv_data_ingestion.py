@@ -9,7 +9,7 @@ from pyspark.sql.types import ArrayType, LongType, StringType, StructField, Stru
 
 from arxiv_curator.config import get_env, load_config
 
-# COMMAND ----------
+# COMMAND -----------
 # Create Spark session
 spark = SparkSession.builder.getOrCreate()
 

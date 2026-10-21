@@ -8,7 +8,7 @@
 # MAGIC - Databricks hosted models
 # MAGIC - External models
 # MAGIC - Pricing comparison
-# MAGIC
+# MAGIC 
 # MAGIC **Documentation and pricing checked: October 12, 2026 (AWS).**
 # MAGIC Model availability depends on your workspace, region, permissions, and model lifecycle.
 

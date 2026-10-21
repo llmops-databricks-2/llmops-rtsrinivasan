@@ -1,7 +1,7 @@
 # Databricks notebook source
 # MAGIC %md
 # MAGIC # Lecture 2.1: Context Engineering Theory
-# MAGIC
+# MAGIC 
 # MAGIC ## Topics Covered:
 # MAGIC - What is context engineering
 # MAGIC - RAG (Retrieval Augmented Generation) fundamentals

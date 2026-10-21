@@ -5,7 +5,7 @@
 # MAGIC Databricks AI Search, formerly Databricks Vector Search, is Databricks'
 # MAGIC managed vector retrieval service. It indexes a Unity Catalog Delta table
 # MAGIC and keeps the index synchronized with it.
-# MAGIC
+# MAGIC 
 # MAGIC ```text
 # MAGIC arxiv_chunks_table (Unity Catalog Delta: text + embedding)
 # MAGIC          │

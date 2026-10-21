@@ -5,7 +5,7 @@
 # MAGIC The chunks table already holds an `embedding` column (written by
 # MAGIC `process_chunks` and backfilled in Lecture 2.4). A Lakebase Synced Table
 # MAGIC copies it into Postgres, and we search it natively with pgvector.
-# MAGIC
+# MAGIC 
 # MAGIC ```text
 # MAGIC arxiv_chunks_table (Unity Catalog Delta: text + embedding)
 # MAGIC          │  Synced Table (managed, read-only copy)
