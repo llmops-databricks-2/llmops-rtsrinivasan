@@ -5,6 +5,9 @@
 # ]
 # [tool.databricks.environment]
 # environment_version = "5"
+# dependencies = [
+#   "/Workspace/Users/rtsrinivasan@yahoo.com/.bundle/dev/llmops-rtsrinivasan/artifacts/.internal/arxiv_curator-0.0.1-py3-none-any.whl",
+# ]
 # ///
 # MAGIC %md
 # MAGIC # Lecture 1.4: External Models Through the AI Gateway

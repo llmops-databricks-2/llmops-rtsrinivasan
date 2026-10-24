@@ -1,7 +1,14 @@
 # Databricks notebook source
+# /// script
+# [tool.databricks.environment]
+# environment_version = "6"
+# dependencies = [
+#   "/Workspace/Users/rtsrinivasan@yahoo.com/.bundle/dev/llmops-rtsrinivasan/artifacts/.internal/arxiv_curator-0.0.1-py3-none-any.whl",
+# ]
+# ///
 # MAGIC %md
 # MAGIC # Lecture 2.1: Context Engineering Theory
-# MAGIC 
+# MAGIC
 # MAGIC ## Topics Covered:
 # MAGIC - What is context engineering
 # MAGIC - RAG (Retrieval Augmented Generation) fundamentals
@@ -154,7 +161,7 @@ from arxiv_curator.config import get_env, load_config
 
 w = WorkspaceClient()
 spark = SparkSession.builder.getOrCreate()
-cfg = load_config("../project_config.yml", get_env(spark))
+cfg = load_config("../project_config.yml", get_env())
 
 # The course chat model service in Unity AI Gateway (course_ops.gateway.chat),
 # called with a Databricks token valid for 20 minutes.
@@ -337,6 +344,7 @@ logger.info(f"\nSummary:\n{summary}")
 # MAGIC - **Language**: Specific languages
 
 # COMMAND ----------
+
 import json
 
 # Example: Metadata structure

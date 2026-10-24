@@ -1,5 +1,11 @@
 # Databricks notebook source
-
+# /// script
+# [tool.databricks.environment]
+# environment_version = "6"
+# dependencies = [
+#   "/Workspace/Users/rtsrinivasan@yahoo.com/.bundle/dev/llmops-rtsrinivasan/artifacts/.internal/arxiv_curator-0.0.1-py3-none-any.whl",
+# ]
+# ///
 from datetime import datetime
 
 import arxiv
@@ -9,12 +15,14 @@ from pyspark.sql.types import ArrayType, LongType, StringType, StructField, Stru
 
 from arxiv_curator.config import get_env, load_config
 
-# COMMAND -----------
+# COMMAND ----------
+
 # Create Spark session
 spark = SparkSession.builder.getOrCreate()
 
 # Load config
-env = get_env(spark)
+#env = get_env(spark)
+env = get_env()
 cfg = load_config("../project_config.yml", env)
 
 CATALOG = cfg.catalog
@@ -26,6 +34,7 @@ spark.sql(f"CREATE SCHEMA IF NOT EXISTS {CATALOG}.{SCHEMA}")
 logger.info(f"Schema {CATALOG}.{SCHEMA} ready")
 
 # COMMAND ----------
+
 # Fetch arXiv Paper Metadata from arXiv API: https://arxiv.org/help/api/index
 
 
@@ -81,6 +90,7 @@ logger.info(f"arXiv ID: {papers[0]['arxiv_id']}")
 logger.info(f"PDF URL: {papers[0]['pdf_url']}")
 
 # COMMAND ----------
+
 # Create Delta Table in Unity Catalog
 # Store the arXiv paper metadata in a Delta table for downstream processing.
 
@@ -114,6 +124,7 @@ logger.info(f"Created Delta table: {table_path}")
 logger.info(f"Records: {df.count()}")
 
 # COMMAND ----------
+
 # Verify the Data
 
 # Read back the table
@@ -128,6 +139,7 @@ logger.info("Sample records:")
 papers_df.select("arxiv_id", "title", "primary_category", "published").show(5, truncate=50)
 
 # COMMAND ----------
+
 # Data Statistics
 
 logger.info("Papers by primary category:")

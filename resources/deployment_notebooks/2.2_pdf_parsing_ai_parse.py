@@ -1,7 +1,14 @@
 # Databricks notebook source
+# /// script
+# [tool.databricks.environment]
+# environment_version = "6"
+# dependencies = [
+#   "/Workspace/Users/rtsrinivasan@yahoo.com/.bundle/dev/llmops-rtsrinivasan/artifacts/.internal/arxiv_curator-0.0.1-py3-none-any.whl",
+# ]
+# ///
 # MAGIC %md
 # MAGIC # Lecture 2.2: PDF Parsing with AI Parse Documents
-# MAGIC 
+# MAGIC
 # MAGIC ## Topics Covered:
 # MAGIC - Downloading and storing PDFs
 # MAGIC - AI Parse Documents for intelligent parsing
@@ -21,9 +28,10 @@ from arxiv_curator.data_processor import DataProcessor
 spark = DatabricksSession.builder.getOrCreate()
 logger.info("Using Databricks Connect Spark session")
 
-env = get_env(spark)
+env = get_env()
 cfg = load_config("../project_config.yml", env)
-
+print(env)
+print(cfg)
 # Initialize the DataProcessor (reusable class from arxiv_curator package)
 processor = DataProcessor(spark=spark, config=cfg)
 
