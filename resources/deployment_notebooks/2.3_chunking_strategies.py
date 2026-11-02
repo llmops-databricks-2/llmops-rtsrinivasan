@@ -1,4 +1,11 @@
 # Databricks notebook source
+# /// script
+# [tool.databricks.environment]
+# environment_version = "6"
+# dependencies = [
+#   "/Workspace/Users/rtsrinivasan@yahoo.com/.bundle/dev/llmops-rtsrinivasan/artifacts/.internal/arxiv_curator-0.0.1-py3-none-any.whl",
+# ]
+# ///
 # MAGIC %md
 # MAGIC # Lecture 2.3: Chunking Strategies
 # MAGIC
@@ -45,7 +52,7 @@ from arxiv_curator.config import load_config, get_env
 spark = SparkSession.builder.getOrCreate()
 
 # Load configuration
-env = get_env(spark)
+env = get_env()
 cfg = load_config("../project_config.yml", env)
 catalog = cfg.catalog
 schema = cfg.schema
@@ -215,6 +222,7 @@ logger.info(f"\nFirst chunk preview:")
 logger.info(sentence_chunks[0][:200] + "...")
 
 # COMMAND ----------
+
 # MAGIC %md
 # MAGIC ## 7. Chunk Size Recommendations
 # MAGIC
@@ -250,5 +258,3 @@ logger.info(sentence_chunks[0][:200] + "...")
 # MAGIC 3. Forget to clean and normalize text
 # MAGIC 4. Lose metadata during chunking
 # MAGIC 5. Use the same chunk size for all document types
-
-# COMMAND ----------

@@ -1,4 +1,11 @@
 # Databricks notebook source
+# /// script
+# [tool.databricks.environment]
+# environment_version = "6"
+# dependencies = [
+#   "/Workspace/Users/rtsrinivasan@yahoo.com/.bundle/dev/llmops-rtsrinivasan/artifacts/.internal/arxiv_curator-0.0.1-py3-none-any.whl",
+# ]
+# ///
 # MAGIC %md
 # MAGIC # Lecture 1.2: Provisioned Throughput Deployment
 # MAGIC
@@ -71,7 +78,8 @@ CAPACITY_CHUNKS = 2
 RUN_DEPLOYMENT = False
 RUN_INFERENCE = False
 # Attributes the endpoint's cost to the course usage policy
-USAGE_POLICY_ID = load_config("../project_config.yml").usage_policy_id
+#USAGE_POLICY_ID = load_config("../project_config.yml").usage_policy_id this is failing check why
+USAGE_POLICY_ID ="5fe6b1ec-0356-3794-9675-87ad93a3b8d4" 
 
 workspace_client = None
 

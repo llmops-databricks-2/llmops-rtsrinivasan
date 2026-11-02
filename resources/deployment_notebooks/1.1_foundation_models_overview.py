@@ -1,4 +1,11 @@
 # Databricks notebook source
+# /// script
+# [tool.databricks.environment]
+# environment_version = "6"
+# dependencies = [
+#   "/Workspace/Users/rtsrinivasan@yahoo.com/.bundle/dev/llmops-rtsrinivasan/artifacts/.internal/arxiv_curator-0.0.1-py3-none-any.whl",
+# ]
+# ///
 # MAGIC %md
 # MAGIC # Lecture 1.1: Foundation Models Overview
 # MAGIC
@@ -60,6 +67,7 @@
 # MAGIC [model lifecycle](https://docs.databricks.com/aws/en/machine-learning/retired-models-policy).
 
 # COMMAND ----------
+
 from databricks.sdk import WorkspaceClient
 from loguru import logger
 from openai import OpenAI

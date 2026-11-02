@@ -1,4 +1,11 @@
 # Databricks notebook source
+# /// script
+# [tool.databricks.environment]
+# environment_version = "6"
+# dependencies = [
+#   "/Workspace/Users/rtsrinivasan@yahoo.com/.bundle/dev/llmops-rtsrinivasan/artifacts/.internal/arxiv_curator-0.0.1-py3-none-any.whl",
+# ]
+# ///
 # MAGIC %md
 # MAGIC # Lecture 2.4: Databricks AI Search
 # MAGIC
@@ -29,7 +36,7 @@ from arxiv_curator.config import get_env, load_config
 # COMMAND ----------
 
 spark = SparkSession.builder.getOrCreate()
-env = get_env(spark)
+env = get_env()
 cfg = load_config("../project_config.yml", env)
 w = WorkspaceClient()
 
@@ -37,8 +44,9 @@ source_table = f"{cfg.catalog}.{cfg.schema}.arxiv_chunks_table"
 ai_search_endpoint = f"{env}-arxiv-ai-search"
 managed_index = f"{cfg.catalog}.{cfg.schema}.arxiv_chunks_ai_search_managed"
 self_managed_index = f"{cfg.catalog}.{cfg.schema}.arxiv_chunks_ai_search_self_managed"
+usage_policy_id = "5fe6b1ec-0356-3794-9675-87ad93a3b8d4"
 
-if not cfg.usage_policy_id:
+if not usage_policy_id:
     raise ValueError("usage_policy_id is missing in project_config.yml")
 
 logger.info(f"Environment: {env}")
@@ -94,15 +102,38 @@ logger.info(f"Validated AI Search source: {source_table}")
 
 # COMMAND ----------
 
+# DBTITLE 1,Test Cell for fixing below cell
+# from databricks.vector_search.client import VectorSearchClient
+
+# ai_search = VectorSearchClient()
+# ai_search.create_endpoint_and_wait(
+#         name=ai_search_endpoint,
+#         endpoint_type="STANDARD",
+#         usage_policy_id="5fe6b1ec-0356-3794-9675-87ad93a3b8d4",
+#     )
+
+# COMMAND ----------
+
+# from databricks.vector_search.client import VectorSearchClient
+
+# ai_search = VectorSearchClient()
+
+# if ai_search.get_endpoint(name=ai_search_endpoint) is None:
+#     ai_search.create_endpoint_and_wait(
+#         name=ai_search_endpoint,
+#         endpoint_type="STANDARD",
+#         usage_policy_id="5fe6b1ec-0356-3794-9675-87ad93a3b8d4",
+#     )
+
+
 from databricks.vector_search.client import VectorSearchClient
 
 ai_search = VectorSearchClient()
-
-if not ai_search.endpoint_exists(name=ai_search_endpoint):
+if ai_search.list_endpoints() == {}:
     ai_search.create_endpoint_and_wait(
         name=ai_search_endpoint,
         endpoint_type="STANDARD",
-        usage_policy_id=cfg.usage_policy_id,
+        usage_policy_id="5fe6b1ec-0356-3794-9675-87ad93a3b8d4",
     )
 
 # COMMAND ----------
@@ -123,6 +154,17 @@ if not ai_search.endpoint_exists(name=ai_search_endpoint):
 # MAGIC indexes only pick up source changes (for example new chunks from the daily
 # MAGIC data pipeline) when we call `sync()`. A new index runs its first sync as part
 # MAGIC of creation.
+
+# COMMAND ----------
+
+# DBTITLE 1,Cell Added to fix the below
+existing_index = ai_search.get_index( endpoint_name=ai_search_endpoint)
+print(f"Index {existing_index} already exists") 
+
+SELECT COUNT(*) AS index_count
+FROM system.ai_indexes
+WHERE index_name = 'my_vector_index'
+  AND index_type = 'VECTOR';
 
 # COMMAND ----------
 
