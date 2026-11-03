@@ -14,7 +14,7 @@ dev:
   volume: "arxiv_files"
   llm_endpoint: "course_ops.gateway.chat"
   embedding_endpoint: "course_ops.gateway.embed"
-  warehouse_id: "4673ecaf636e9a87"
+  warehouse_id: "2d000a78d0212d45"
   experiment_path: "/llmops/rtsrinivasan-dev"
   # Your provisioned Lakebase project.
   lakebase_instance: "lb-llmops-rtsrinivasan"
@@ -26,7 +26,7 @@ acc:
   volume: "arxiv_files"
   llm_endpoint: "course_ops.gateway.chat"
   embedding_endpoint: "course_ops.gateway.embed"
-  warehouse_id: "4673ecaf636e9a87"
+  warehouse_id: "2d000a78d0212d45"
   experiment_path: "/llmops/rtsrinivasan-acc"
   # Your provisioned Lakebase project for this environment.
   lakebase_instance: "lb-llmops-rtsrinivasan"
@@ -38,7 +38,7 @@ prd:
   volume: "arxiv_files"
   llm_endpoint: "course_ops.gateway.chat"
   embedding_endpoint: "course_ops.gateway.embed"
-  warehouse_id: "4673ecaf636e9a87"
+  warehouse_id: "2d000a78d0212d45"
   experiment_path: "/llmops/rtsrinivasan-prd"
   # Your provisioned Lakebase project for this environment.
   lakebase_instance: "lb-llmops-rtsrinivasan"

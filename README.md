@@ -12,7 +12,7 @@ the course workspace was provisioned for you before you got this repo, and every
 | Your schema in acceptance, which you read | `llmops_acc.rtsrinivasan` |
 | Your schema in production, which you read | `llmops_prd.rtsrinivasan` |
 | Suggested volume name (create during the course) | `arxiv_files`, such as `llmops_dev.rtsrinivasan.arxiv_files` |
-| SQL warehouse id | `4673ecaf636e9a87` |
+| SQL warehouse id | `2d000a78d0212d45` |
 | Usage policy id | `5fe6b1ec-0356-3794-9675-87ad93a3b8d4` |
 | MLflow experiments | Dev: `/llmops/rtsrinivasan-dev`; acc: `/llmops/rtsrinivasan-acc`; prd: `/llmops/rtsrinivasan-prd` |
 | Chat model service | `course_ops.gateway.chat` |
